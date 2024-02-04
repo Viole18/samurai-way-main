@@ -1,4 +1,4 @@
-import classes from './MyPosts.module.css';
+import classes from './Post.module.css';
 
 const Post = () => {
   return (
