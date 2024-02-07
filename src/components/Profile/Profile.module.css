@@ -1,9 +1,6 @@
-.content {
-  grid-area: c;
-  background-color: blue;
-}
 
-.content .banner img {
+
+ .banner img {
   width: 911px;
   height: 277px;
   border-radius: 10px;
