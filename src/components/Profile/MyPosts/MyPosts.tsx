@@ -2,10 +2,10 @@ import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 
 interface IMyPosts {
-  posts: IPost[]
+  posts: IPosts[]
 }
 
-interface IPost {
+interface IPosts {
   id: number;
   message: string;
   likesCount: number
@@ -13,7 +13,7 @@ interface IPost {
 
 const MyPosts = (props: IMyPosts) => {
 
-let postsElements = props.posts.map ( (p: IPost) => <Post message={p.message} likesCount={p.likesCount} />)
+let postsElements = props.posts.map ( (p: IPosts) => <Post message={p.message} likesCount={p.likesCount} />)
 
   return (
     <div className={classes.postsBlock}>

@@ -2,28 +2,24 @@ import DialogItem from './DIalogsItem/DialogsItem'
 import classes from './Dialogs.module.css'
 import Message from './Message/Message'
 
-const Dialogs = (props: any) => {
+interface Dialogs {
+    dialog:  Ddata[]
+    message:  Mdata[]
+}
 
-    let dialogsData = [
-        { id: 1, name: 'Dimych' },
-        { id: 2, name: 'Artem' },
-        { id: 3, name: 'Sveta' },
-        { id: 4, name: 'Valera' },
-        { id: 5, name: 'Slava' },
-        { id: 6, name: 'Lesha' },
-    ]
+interface Ddata {
+    id: number;
+    name: string;
+}
+interface Mdata {
+    id: number;
+    message: string;
+}
 
-    let messagesData = [
-        { id: 1, message: 'Hi' },
-        { id: 2, message: 'How are you?' },
-        { id: 3, message: 'Yo' },
-        { id: 4, message: 'Yo' },
-        { id: 5, message: 'Yo' },
-        { id: 6, message: 'Yo' },
-    ]
+const Dialogs = (props: Dialogs) => {
 
-    let dialogsElements = dialogsData.map(d => <DialogItem name={d.name} id={d.id} />)
-    let messagesElements = messagesData.map(m => <Message message={m.message} />)
+    let dialogsElements = props.dialog.map( (d: Ddata) => <DialogItem name={d.name} id={d.id} />)
+    let messagesElements = props.message.map( (m: Mdata) => <Message message={m.message} />)
 
     return (
         <div>
