@@ -1,16 +1,19 @@
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = () => {
+interface IMyPosts {
+  posts: IPost[]
+}
 
-  let posts = [
-    { id: 1, message: 'Hi, how are you?', likesCount: 0 },
-    { id: 2, message: 'How are you?', likesCount: 18  },
-    { id: 3, message: 'Hi, you?', likesCount: 32  },
-    { id: 4, message: 'Da DA DADADADAD?', likesCount: 12  },
-]
+interface IPost {
+  id: number;
+  message: string;
+  likesCount: number
+}
 
-let postsElements = posts.map ( p => <Post message={p.message} likesCount={p.likesCount} />)
+const MyPosts = (props: IMyPosts) => {
+
+let postsElements = props.posts.map ( (p: IPost) => <Post message={p.message} likesCount={p.likesCount} />)
 
   return (
     <div className={classes.postsBlock}>
