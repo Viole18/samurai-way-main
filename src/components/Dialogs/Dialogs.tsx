@@ -3,8 +3,8 @@ import classes from './Dialogs.module.css'
 import Message from './Message/Message'
 
 interface Dialogs {
-    dialog:  Ddata[]
-    message:  Mdata[]
+    dialogs:  Ddata[]
+    messages:  Mdata[]
 }
 
 interface Ddata {
@@ -18,8 +18,8 @@ interface Mdata {
 
 const Dialogs = (props: Dialogs) => {
 
-    let dialogsElements = props.dialog.map( (d: Ddata) => <DialogItem name={d.name} id={d.id} />)
-    let messagesElements = props.message.map( (m: Mdata) => <Message message={m.message} />)
+    let dialogsElements = props.dialogs.map( (d: Ddata) => <DialogItem name={d.name} id={d.id} />)
+    let messagesElements = props.messages.map( (m: Mdata) => <Message message={m.message} />)
 
     return (
         <div>

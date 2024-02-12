@@ -11,9 +11,16 @@ import Setting from './components/Setting/Setting';
 
 
 interface IApp {
-  posts: Iposts[]
-  dialog: Idialog[]
-  message: Imessage[]
+  state: {
+    profilePage: {
+      posts: Iposts[]
+    },
+    dialogsPage: {
+      dialogs: Idialog[]
+      messages: Imessage[]
+    }
+  }
+
 }
 
 interface Iposts {
@@ -33,14 +40,18 @@ interface Imessage {
 }
 
 const App = (props: IApp) => {
+  console.log(props)
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route path='/profile' render={ () => <Profile posts={props.posts} />}/>
-          <Route path='/dialogs' render={ () => <Dialogs dialog={props.dialog} message={props.message} />} />
+          <Route path='/profile'
+            render={() => <Profile posts={props.state.profilePage.posts} />} />
+          <Route path='/dialogs'
+            render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs}
+              messages={props.state.dialogsPage.messages} />} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/setting' component={Setting} />
