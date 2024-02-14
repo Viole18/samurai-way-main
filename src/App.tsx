@@ -42,7 +42,7 @@ interface Imessage {
 const App = (props: IApp) => {
   console.log(props)
   return (
-    <BrowserRouter>
+    
       <div className='app-wrapper'>
         <Header />
         <Navbar />
@@ -57,7 +57,7 @@ const App = (props: IApp) => {
           <Route path='/setting' component={Setting} />
         </div>
       </div>
-    </BrowserRouter>
+    
   );
 }
 
